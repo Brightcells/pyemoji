@@ -68,7 +68,10 @@ class PyEmoji(object):
         :param text:
         :return:
         """
-        return text.decode('unicode_escape')
+        try:
+            return text.decode('unicode_escape')
+        except UnicodeEncodeError:
+            return text
 
     def replace(self, emoji, placeholder=u'\uFFFD', unic=None):
         """
