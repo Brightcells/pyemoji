@@ -4,14 +4,14 @@ from __future__ import with_statement
 from setuptools import setup
 
 
-version = '1.0.1'
+version = '1.0.2'
 
 
 setup(
     name='pyemoji',
     version=version,
     keywords='',
-    description="Emoji Convert & Replace",
+    description="Emoji Convert & Replace & Entities",
     long_description=open('README.rst').read(),
 
     url='https://github.com/Brightcells/pyemoji',

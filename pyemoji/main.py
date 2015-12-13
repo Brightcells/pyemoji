@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """
@@ -24,7 +23,6 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 """
 
-
 import re
 
 
@@ -37,19 +35,22 @@ except re.error:
     # Narrow UCS-2 build
     highpoints = re.compile(u'[\uD800-\uDBFF][\uDC00-\uDFFF]')
 
+from .compat import str
+
 
 class PyEmoji(object):
     def unic_func(self, text, unic):
         if unic:
             return unic(text)
-        if isinstance(text, unicode):
+        if isinstance(text, str):
             return text
         return text.decode('utf8')
 
     def repl_func(self, matched):
-        hex_num = u'0x{0}'.format(matched.group().encode('unicode_escape').lstrip('\\').lstrip('U').lstrip('0'))
+        #: .decode('utf8') for Python 3.x compatibility
+        hex_num = '0x{0}'.format(matched.group().encode('unicode_escape').decode('utf8').lstrip('\\').lstrip('U').lstrip('0'))
         decimal_num = int(hex_num, 16)
-        return u'&#{0};'.format(decimal_num)
+        return '&#{0};'.format(decimal_num)
 
     def encode(self, emoji, unic=None):
         """
@@ -72,6 +73,8 @@ class PyEmoji(object):
             return text.decode('unicode_escape')
         except UnicodeEncodeError:
             return text
+        except AttributeError:  #: Python 3.x
+            return text.encode('utf8').decode('unicode_escape')
 
     def replace(self, emoji, placeholder=u'\uFFFD', unic=None):
         """
