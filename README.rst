@@ -6,7 +6,7 @@ When MySQL version greater than 5.5.3 have utf8mb4 CHARACTER SET which can store
 
 But when MySQL version lower than 5.5.3 can't directly store emoji.
 
-By using pyemoji's encode/decode & replace & entities function.
+And can store emoji by using pyemoji's encode/decode & replace & entities function.
 
 Similar: https://pypi.python.org/pypi/pymoji
 

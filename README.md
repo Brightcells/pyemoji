@@ -1,2 +1,2 @@
 # pyemoji
-Emoji Convert &amp;Replace
+Emoji Convert &amp;Replace &amp;Entities

@@ -23,17 +23,18 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 """
 
-import re
+from __future__ import division, absolute_import, print_function, unicode_literals
 
+import re
 
 # Refer: http://stackoverflow.com/questions/26568722/remove-unicode-emoji-using-re-in-python
 # Refer: http://stackoverflow.com/questions/22706522/python-remove-ios-emoji-characters-in-a-unicode-str-to-avoid-databaseerror-in
 try:
     # Wide UCS-4 build
-    highpoints = re.compile(u'[\U00010000-\U0010ffff]')
+    highpoints = re.compile('[\U00010000-\U0010ffff]')
 except re.error:
     # Narrow UCS-2 build
-    highpoints = re.compile(u'[\uD800-\uDBFF][\uDC00-\uDFFF]')
+    highpoints = re.compile('[\uD800-\uDBFF][\uDC00-\uDFFF]')
 
 from .compat import str
 
@@ -76,7 +77,7 @@ class PyEmoji(object):
         except AttributeError:  #: Python 3.x
             return text.encode('utf8').decode('unicode_escape')
 
-    def replace(self, emoji, placeholder=u'\uFFFD', unic=None):
+    def replace(self, emoji, placeholder='\uFFFD', unic=None):
         """
         Replace Emoji as Placeholder which default is u'\uFFFD' display as �
         Remove All Emojis by Setting Placeholder as ''
