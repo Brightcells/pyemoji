@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import division, absolute_import, print_function, unicode_literals
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import re
+
+from .compat import str
+
 
 # Refer: http://stackoverflow.com/questions/26568722/remove-unicode-emoji-using-re-in-python
 # Refer: http://stackoverflow.com/questions/22706522/python-remove-ios-emoji-characters-in-a-unicode-str-to-avoid-databaseerror-in
@@ -12,8 +15,6 @@ try:
 except re.error:
     # Narrow UCS-2 build
     highpoints = re.compile('[\uD800-\uDBFF][\uDC00-\uDFFF]')
-
-from .compat import str
 
 
 class PyEmoji(object):
