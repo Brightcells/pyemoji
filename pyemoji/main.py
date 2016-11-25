@@ -77,10 +77,16 @@ class PyEmoji(object):
         """
         return highpoints.sub(self.repl_func, self.unic_func(emoji, unic=unic))
 
+    def joiner(self, *mojis):
+        """
+        ZERO WIDTH JOINER ``mojis``.
+        """
+        return '\u200D'.join(mojis)
 
-# For backwards compatibility
+
 _global_instance = PyEmoji()
 encode = _global_instance.encode
 decode = _global_instance.decode
 replace = _global_instance.replace
 entities = _global_instance.entities
+joiner = _global_instance.joiner

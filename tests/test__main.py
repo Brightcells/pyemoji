@@ -18,3 +18,6 @@ class TestStatusCodeCommands(object):
 
     def test_entities(self):
         assert pyemoji.entities(u'笑脸表情：😄') == u'笑脸表情：&#128516;'
+
+    def test_joiner(self):
+        assert pyemoji.joiner(u'\U0001F468', u'\U0001F469', u'\U0001F467') == u'\U0001f468\u200d\U0001f469\u200d\U0001f467'

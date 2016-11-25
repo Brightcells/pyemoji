@@ -3,4 +3,5 @@ from pyemoji.main import (
     decode,
     replace,
     entities,
+    joiner,
 )
