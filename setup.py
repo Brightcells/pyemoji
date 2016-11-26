@@ -12,7 +12,7 @@ setup(
     name='pyemoji',
     version=version,
     keywords='',
-    description="Emoji Convert & Replace & Entities",
+    description='Emoji Convert & Replace & Entities & Joiner',
     long_description=open('README.rst').read(),
 
     url='https://github.com/Brightcells/pyemoji',
