@@ -3,7 +3,7 @@
 import pyemoji
 
 
-class TestStatusCodeCommands(object):
+class TestPyEmojiCommands(object):
 
     def test_encode(self):
         assert pyemoji.encode(u'笑脸表情：😄') == '\u7b11\u8138\u8868\u60c5\uff1a\U0001f604'
