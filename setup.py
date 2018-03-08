@@ -20,7 +20,7 @@ setup(
 
     packages=['pyemoji'],
     py_modules=[],
-    install_requires=[],
+    install_requires=['pyconstant'],
 
     classifiers=[
         "License :: OSI Approved :: BSD License",
